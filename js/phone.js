@@ -40,9 +40,11 @@ const displayPhone = (phones, isShowAll) => {
         `;
         phoneContainer.appendChild(phoneCard)
     });
+    toggoleLoadingSpinner(false)
 }
 
 const handleSearch = (isShowAll) => {
+    toggoleLoadingSpinner(true)
     const serachField = document.getElementById('search-field');
     const searchText = serachField.value;
     loadPhone(searchText, isShowAll)
@@ -51,3 +53,14 @@ const handleSearch = (isShowAll) => {
 const handleShowAll = () => (
     handleSearch(true)
 )
+
+
+const toggoleLoadingSpinner = (isLoading) => {
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if(isLoading){
+        loadingSpinner.classList.remove('hidden')
+    }
+    else{
+        loadingSpinner.classList.add('hidden')
+    }
+}
