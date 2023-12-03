@@ -12,30 +12,54 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-   
-
     <main>
-        <section>
-            <div class="bg-gray-200 mt-10 p-4">
-                <input id="search-field" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                <button onclick="handleSearch()" class="btn btn-accent">Accent</button>
-            </div>
-        </section>
+      <section>
+        <div class="bg-gray-200 mt-10 p-4">
+          <input
+            id="search-field"
+            type="text"
+            placeholder="Type here"
+            class="input input-bordered w-full max-w-xs"
+          />
+          <button onclick="handleSearch()" class="btn btn-accent">
+            Accent
+          </button>
+        </div>
+      </section>
 
-        <section>
-            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <section>
+        <div
+          id="phone-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        ></div>
+        <div id="loading-spinner" class="mt-40 text-center hidden">
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+        <div id="show-all-btn" class="text-center p-4 my-10 hidden">
+          <button onclick="handleShowAll ()" class="btn btn-accent">
+            Show All
+          </button>
+        </div>
+      </section>
+      <section>
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="show_phone_details.showModal()">open modal</button> -->
+        <dialog id="show_phone_details" class="modal">
+          <div class="modal-box">
+            <div id="show-details-container" class="space-y-5 flex flex-col items-center">
 
             </div>
-            <div id="loading-spinner" class="mt-40 text-center hidden">
-                <span class="loading loading-spinner loading-lg"></span>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn bg-[#ff0000bd] text-white">Close</button>
+              </form>
             </div>
-            <div id="show-all-btn" class="text-center p-4 my-10 hidden">
-                <button onclick="handleShowAll ()" class="btn btn-accent">Show All</button>
-            </div>
-        </section>
+          </div>
+        </dialog>
+      </section>
     </main>
 
-    
     <!-- script -->
     <script src="js/phone.js"></script>
   </body>
